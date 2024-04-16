@@ -15,7 +15,7 @@ jobs:
       - run: |
           git config --global user.name gha
           git config --global user.email actions@github.com
-          wget https://linux-mirror-db.storage.googleapis.com/mirror.sl3
+          wget -q https://linux-mirror-db.storage.googleapis.com/mirror.sl3
           sqlite3 --csv mirror.sl3 < sql/backports.sql > backports.csv
           git add backports.csv
           git commit --allow-empty -m 'update backports.csv'
